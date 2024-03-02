@@ -1,9 +1,7 @@
 name: CD
 
 on:
-  push:
-    branches:
-      - develop
+  workflow_dispatch:
 
 jobs:
   pull-latest:
@@ -20,4 +18,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Pull latest Docker image
-        run: docker pull jinee233/handson
+        run: docker pull jinee233/handson:${{ github.sha }}
