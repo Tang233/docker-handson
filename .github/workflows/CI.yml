@@ -37,7 +37,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t jinee233/handson:${{ github.sha }} .
+        run: docker build -t jinee233/handson:${{ github.sha }} -t jinee233/handson:latest .
 
       - name: Push Docker image
-        run: docker push jinee233/handson:${{ github.sha }}
+        run: docker push jinee233/handson:${{ github.sha }} -t jinee233/handson:latest
